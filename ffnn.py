@@ -33,15 +33,12 @@ class FFNN(nn.Module):
         return self.loss(predicted_vector, gold_label)
 
     def forward(self, input_vector):
-        ### [to fill] obtain first hidden layer representation
         # Obtain the first hidden layer representation
         hidden_layer = self.activation(self.W1(input_vector))
 
-        ### [to fill] obtain output layer representation
         # Obtain output layer representation
         output_layer = self.W2(hidden_layer)
     
-        ### [to fill] obtain probability dist.
         # Obtain probability distribution using LogSoftmax with explicit dimension
         # Determine correct dimension for log_softmax
         dim = 1 if output_layer.dim() > 1 else 0
